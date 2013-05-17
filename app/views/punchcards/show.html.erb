@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Timein:</b>
+  <%= @punchcard.timein %>
+</p>
+
+<p>
+  <b>Timeout:</b>
+  <%= @punchcard.timeout %>
+</p>
+
+
+<%= link_to 'Edit', edit_punchcard_path(@punchcard) %> |
+<%= link_to 'Back', punchcards_path %>

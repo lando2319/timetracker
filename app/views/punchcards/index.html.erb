@@ -1,0 +1,38 @@
+<h1>Time Tracker</h1>
+<h2>Active Cards</h2>
+<table>
+  <tr>
+    <th>Client Name</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @punchcards.each do |punchcard| %>
+  <tr>
+    <td><%= punchcard.client %></td>
+    <td><%= link_to 'Show', punchcard %></td>
+    <td><%= link_to 'Edit', edit_punchcard_path(punchcard) %></td>
+    <td><%= link_to 'Destroy', punchcard, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <td><% if punchcard.timein == nil %>
+      <%= button_to 'timein', timein_path(punchcard), method: :post %></td>
+      <% else %>
+    <% end %>
+    <td><%= button_to 'timeout', timeout_path(punchcard), method: :post %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Punchcard', new_punchcard_path %>
+<br>
+<% @completedcards.each do |punchcard| %>
+  <tr>
+    <td><%= punchcard.client %></td>
+    <td><%= punchcard.timein %></td>
+    <td><%= punchcard.timeout %></td>
+    <td><%= link_to 'Delete', punchcard, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+<br />

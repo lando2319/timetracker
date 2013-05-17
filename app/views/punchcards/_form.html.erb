@@ -1,0 +1,21 @@
+<%= form_for(@punchcard) do |f| %>
+  <% if @punchcard.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@punchcard.errors.count, "error") %> prohibited this punchcard from being saved:</h2>
+
+      <ul>
+      <% @punchcard.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :client %><br />
+    <%= f.text_area :client %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
